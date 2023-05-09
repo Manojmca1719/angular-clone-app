@@ -1,0 +1,25 @@
+<div class="community-header">
+    EXPLORE ANGULAR RESOURCES
+</div>
+
+<div class="container tab-container">
+    <div class="community-tab-grid">
+        <div class="tabs" *ngFor="let tabMenu of communityListData" (click)="getActiveCommunity(tabMenu.tabTitle)" [class.active]="activeCommunityTab === tabMenu.tabTitle">{{tabMenu.tabTitle}}</div>
+    </div>
+    <div class="container col-11 p-0 tab-content-container">
+        <div *ngFor="let tabHeader of currentActiveTabContent;let i = index">
+            <div class="tab-content-header">{{tabHeader.title}}</div>  
+            <div class="tab-content-list" *ngFor="let tabContent of tabHeader.content" (click)="listRoute(tabContent.route)">
+                <div class="tab-content-list-hover">
+                    <div class="tab-content-list-title">
+                        {{tabContent.title}}
+                    </div>
+                    <div class="tab-content-list-desc">
+                        {{tabContent.desc}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,113 @@
+.base-layout-grid {
+    display: grid;
+    grid-template-columns: 275px auto 250px;
+    gap: 5px;
+    height: 100%;
+
+    .left-menu-list {
+        background-color: #fafafa;
+        border-right: 1px solid#d9d9d9;
+        color: #010101;
+        padding: 15px;
+        height: 100%;
+        overflow: auto;
+        overflow: overlay;
+
+        .side-nav {
+            padding-left: 0;
+
+            .nav-item {
+                list-style: none;
+                padding: 5px 0;
+                vertical-align: middle;
+                letter-spacing: .45px;
+
+                .right-down-arrow {
+                    float: right;
+                    font-size: 12px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .arrow-look-down {
+                    transform: rotate(90deg);
+                    transition: .2s  ease-in-out all;
+                }
+                .arrow-look-right {
+                    transform: rotate(0deg);
+                    transition: .2s  ease-in-out all;
+                }
+
+                .sub-side-nav {
+                    padding-left: 10px;
+                    margin-top: 10px;
+
+                    .sub-nav-item {
+                        list-style: none;
+                        padding: 5px 0;
+                        vertical-align: middle;
+                        letter-spacing: .45px;
+                    }
+                }
+
+                .active {
+                    color: #1669bb;
+                }
+
+                .first-level-submenu-title {
+                    .sub-nav-item {
+                        list-style: none;
+                        padding: 5px 0;
+                        font-size: 14px;
+                        vertical-align: middle;
+                        letter-spacing: .45px;
+                    }
+                }
+
+                .second-level-submenu-title {
+                    .sub-nav-item {
+                        list-style: none;
+                        padding: 5px 0;
+                        font-size: 13px;
+                        vertical-align: middle;
+                        letter-spacing: .45px;
+                    }
+                }
+
+                .third-level-submenu-title {
+                    .sub-nav-item {
+                        list-style: none;
+                        padding: 5px 0;
+                        font-size: 12px;
+                        vertical-align: middle;
+                        letter-spacing: .45px;
+                    }
+                }
+            }
+
+            .active {
+                color: #1669bb;
+            }
+        }
+    }
+
+    .right-menu-list {
+        background-color: #ccc;
+        color: #010101;
+        padding: 20px;
+
+        .right-side-menu {
+            padding-left: 20px;
+            .right-list {
+                font-size: 14px;
+                margin: 10px 0;
+
+                .right-list-sub {
+                    font-size: 13px;
+                    padding-left: 10px;
+                    margin: 10px 0;
+               }
+            }
+        }
+    }
+}

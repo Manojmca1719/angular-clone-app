@@ -1,0 +1,68 @@
+<div class="base-layout-grid">
+    <div class="left-menu-list">
+
+        <div class="side-nav">
+
+            <div class="nav-item" *ngFor="let mainHeadMenu of listMenu">
+                <div (click)="getLevelSubMenuFindRightMenu(mainHeadMenu.id)">
+                    {{mainHeadMenu.leftMenuTitle}}
+                    <!-- [ngClass]="mainHeadMenu.select ? 'arrow-look-down' : 'arrow-look-right'" -->
+                    <span class="right-down-arrow arrow-look-down" [ngClass]="mainHeadMenu.select ? 'arrow-look-down' : 'arrow-look-right'" *ngIf="mainHeadMenu.firstLevelSubMenu.length>0">
+                        <i-feather name="chevron-right"></i-feather>
+                    </span>
+                </div>
+                <div *ngIf="mainHeadMenu.firstLevelSubMenu.length>0 && mainHeadMenu.select"
+                    class="d-block sub-side-nav first-level-submenu-title">
+                    <div *ngFor="let firstLevelSubMenu of mainHeadMenu.firstLevelSubMenu">
+                        <div (click)="getLevelSubMenuFindRightMenu(mainHeadMenu.id, firstLevelSubMenu.id)"
+                            class="sub-nav-item">
+                            {{firstLevelSubMenu.firstLevelSubMenuTitle}}
+                            <span class="right-down-arrow" [ngClass]="firstLevelSubMenu.select ? 'arrow-look-down' : 'arrow-look-right'" *ngIf="firstLevelSubMenu.secondLevelSubMenu.length>0 ">
+                                <i-feather name="chevron-right"></i-feather>
+                            </span>
+                        </div>
+                        <div *ngIf="firstLevelSubMenu.secondLevelSubMenu.length>0 && firstLevelSubMenu.select"
+                            class="d-block sub-side-nav second-level-submenu-title">
+                            <div *ngFor="let secondLevelSubMenu of firstLevelSubMenu.secondLevelSubMenu">
+                                <div (click)="getLevelSubMenuFindRightMenu(mainHeadMenu.id,firstLevelSubMenu.id,secondLevelSubMenu.id)"
+                                    class="sub-nav-item">
+                                    {{secondLevelSubMenu.secondLevelSubMenuTitle}}
+                                    <span class="right-down-arrow" [ngClass]="secondLevelSubMenu.select ? 'arrow-look-down' : 'arrow-look-right'"
+                                        *ngIf="secondLevelSubMenu.thirdLevelSubMenu.length>0">
+                                        <i-feather name="chevron-right"></i-feather>
+                                    </span>
+                                </div>
+                                <div *ngIf="secondLevelSubMenu.thirdLevelSubMenu.length>0 && secondLevelSubMenu.select" 
+                                    class="d-block sub-side-nav third-level-submenu-title">
+                                    <div *ngFor="let thirdLevelSubMenu of  secondLevelSubMenu.thirdLevelSubMenu">
+                                        <div (click)="getLevelSubMenuFindRightMenu(mainHeadMenu.id,firstLevelSubMenu.id,secondLevelSubMenu.id,thirdLevelSubMenu.id)"
+                                            class="sub-nav-item">
+                                            {{thirdLevelSubMenu.thirdLevelSubMenuTitle}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="centered-content"></div>
+    <div class="right-menu-list">
+        <div class="right-side-menu">
+            <div class="right-list" *ngFor="let rightMenu of activeRightSideMenu">
+                <div>
+                    {{rightMenu.rightMenuTitle}}
+                </div>
+                <div *ngIf="rightMenu.rightMenuSub.length> 0">
+                    <div  *ngFor="let rightSubMenu of rightMenu.rightMenuSub">
+                        <div class="right-list-sub">
+                            {{rightSubMenu.reightSubMenu}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

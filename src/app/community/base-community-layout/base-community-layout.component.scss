@@ -1,0 +1,93 @@
+.community-header {
+    height: 100px;
+    padding: 0 25px;
+    background-color: #1e88e5;
+    color: #fff;
+    font-size: 24px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0px 11px 8px -10px rgba(0, 0, 0, .2);
+}
+
+.tab-container {
+    margin-top: 20px;
+
+    .community-tab-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 175px);
+        justify-content: center;
+
+        .tabs {
+            background-color: #aed9ff;
+            color: #000;
+            border-radius: 5px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: #5fb3fd;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
+        .active {
+            background-color: #1e88e5;
+            color: #fff;
+        }
+    }
+
+    .tab-content-container {
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+        margin-top: 20px;
+        border-radius: 5px;
+
+        .tab-content-header {
+            height: 60px;
+            background-color: #eceff1;
+            font-size: 24px;
+            text-transform: capitalize;
+            font-weight: 500;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tab-content-list {
+            height: auto;
+            padding: 10px 20px;
+            transition: .2s;
+
+            .tab-content-list-hover {
+                transform: translateY(0);
+                transition: .2s;
+            }
+
+            .tab-content-list-title {
+                line-height: 2.4rem;
+                font-size: 20px;
+                font-weight: 500;
+                color: #333;
+            }
+
+            .tab-content-list-desc {}
+            &:hover {
+                box-shadow: 2px 4px 10px rgba(30, 136, 229, .2);
+                transition: .2s;
+                border-radius: 5px;
+                border: .2px solid rgba(30, 136, 229,.4);
+                cursor: pointer;
+                .tab-content-list-hover {
+                    transform: translateY(-2px);
+                    transition: .2s;
+                }
+            }
+        }
+    }
+}
